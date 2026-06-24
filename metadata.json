@@ -1,0 +1,8 @@
+{
+  "name": "Byroad Adventures",
+  "description": "Landing page para una agencia de turismo de rutas en moto por carreteras secundarias. Ponemos a tu disposición la moto de aventura, el equipamiento completo de seguridad y las mejores rutas secretas alejadas de las aglomeraciones turísticas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

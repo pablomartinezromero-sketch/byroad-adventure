@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Custom animations and polish to elevate the feeling of freedom and movement */
+@layer utilities {
+  .glow-orange {
+    text-shadow: 0 0 20px rgba(249, 115, 22, 0.35);
+  }
+  
+  .glow-box-orange {
+    box-shadow: 0 0 40px rgba(249, 115, 22, 0.15);
+  }
+
+  .text-shadow-subtle {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+  }
+
+  /* Frosted glass panel styling */
+  .frosted-panel {
+    background-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(24px) saturate(120%);
+    -webkit-backdrop-filter: blur(24px) saturate(120%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .frosted-panel-hover:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Radial Dot Grid Background */
+  .radial-dot-grid {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.2px, transparent 1.2px);
+    background-size: 40px 40px;
+  }
+}
+
+/* Smooth custom scrollbar for that luxury editorial look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b; /* neutral-950 */
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a; /* neutral-800 */
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f97316; /* orange-500 */
+}
+

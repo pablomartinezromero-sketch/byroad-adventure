@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 48" fill="none" role="img" aria-label="Byroad Adventures - Propuesta 2: Monograma BA">
+  <!-- Icon: BA monogram -->
+  <g transform="translate(0, 0)">
+    <rect x="2" y="2" width="44" height="44" rx="12" fill="#f97316"/>
+    <!-- Letter B -->
+    <path d="M14 10 H22 C26 10 28 12.5 28 15.5 C28 17.5 27 19 25.5 19.8 C27.5 20.5 29 22.2 29 24.8 C29 28.5 26 31 22 31 H14 Z M18 14 V17.5 H21.5 C23 17.5 24 16.8 24 15.7 C24 14.6 23 14 21.5 14 Z M18 21.5 V27.5 H22 C24 27.5 25 26.5 25 24.5 C25 22.5 24 21.5 22 21.5 Z" fill="#0a0a0a"/>
+    <!-- Letter A with road gap -->
+    <path d="M32 31 L36 10 H40 L44 31 H40.5 L39.5 27 H36.5 L35.5 31 Z M37 23.5 H39 L38 17.5 Z" fill="#0a0a0a"/>
+    <!-- Road line through A -->
+    <path d="M33 25.5 H43" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M35 25.5 H41" stroke="#0a0a0a" stroke-width="0.8" stroke-linecap="round" stroke-dasharray="2 2"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="56" y="21" fill="#ffffff" font-family="Outfit, Arial, sans-serif" font-weight="900" font-size="17" font-style="italic" letter-spacing="-0.3">BYROAD</text>
+  <text x="56" y="38" fill="#f97316" font-family="Outfit, Arial, sans-serif" font-weight="900" font-size="17" font-style="italic" letter-spacing="-0.3">ADVENTURES</text>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 48" fill="none" role="img" aria-label="Byroad Adventures - Propuesta 3: Carretera en S">
+  <!-- Icon: S-shaped road -->
+  <g transform="translate(0, 0)">
+    <circle cx="24" cy="24" r="22" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+    <!-- Road body -->
+    <path d="M10 14 C18 14 22 18 22 22 C22 26 18 30 10 30" stroke="#e7e5e4" stroke-width="5" stroke-linecap="round" fill="none"/>
+    <path d="M38 18 C30 18 26 22 26 26 C26 30 30 34 38 34" stroke="#e7e5e4" stroke-width="5" stroke-linecap="round" fill="none"/>
+    <!-- Road center line -->
+    <path d="M10 14 C18 14 22 18 22 22 C22 26 18 30 10 30" stroke="#0a0a0a" stroke-width="0.8" stroke-linecap="round" stroke-dasharray="3 3" fill="none" opacity="0.6"/>
+    <path d="M38 18 C30 18 26 22 26 26 C26 30 30 34 38 34" stroke="#0a0a0a" stroke-width="0.8" stroke-linecap="round" stroke-dasharray="3 3" fill="none" opacity="0.6"/>
+    <!-- Destination dot -->
+    <circle cx="38" cy="34" r="4" fill="#f97316"/>
+    <circle cx="38" cy="34" r="6" fill="#f97316" opacity="0.25"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="56" y="21" fill="#ffffff" font-family="Outfit, Arial, sans-serif" font-weight="900" font-size="17" font-style="italic" letter-spacing="-0.3">BYROAD</text>
+  <text x="56" y="38" fill="#f97316" font-family="Outfit, Arial, sans-serif" font-weight="900" font-size="17" font-style="italic" letter-spacing="-0.3">ADVENTURES</text>
+</svg>
