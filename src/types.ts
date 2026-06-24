@@ -2,6 +2,25 @@ export type Localized<T = string> = { es: T; en: T };
 
 export type RouteType = 'trail' | 'custom' | 'offroad';
 
+export interface RouteGalleryImage {
+  src: string;
+  caption: Localized;
+}
+
+export interface RouteStage {
+  title: Localized;
+  distance?: string;
+  content: Localized;
+}
+
+export interface RouteAccommodation {
+  name: Localized;
+  location: Localized;
+  type: Localized;
+  description: Localized;
+  image?: string;
+}
+
 export interface RouteInfo {
   id: string;
   routeType: RouteType;
@@ -14,6 +33,9 @@ export interface RouteInfo {
   terrain: Localized;
   description: Localized;
   highlights: Localized<string[]>;
+  gallery?: RouteGalleryImage[];
+  routeDetail?: Localized<RouteStage[]>;
+  accommodations?: RouteAccommodation[];
 }
 
 export interface GearItem {

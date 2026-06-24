@@ -36,6 +36,7 @@ export default function AdventureForm() {
     switch (routeId) {
       case 'canones': return 320;
       case 'encinas': return 290;
+      case 'guardianes': return 720;
       case 'silencio': return 780;
       case 'atlantico': return 1080;
       case 'dehesa': return 350;
@@ -61,6 +62,7 @@ export default function AdventureForm() {
       case 'senderos':
         return 1;
       case 'silencio':
+      case 'guardianes':
         return 3;
       case 'atlantico':
         return 4;

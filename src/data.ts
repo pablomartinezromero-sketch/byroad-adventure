@@ -88,6 +88,60 @@ export const ROUTES: RouteInfo[] = [
     }
   },
   {
+    id: 'guardianes',
+    routeType: 'custom',
+    name: { es: 'Ruta de los Guardianes del Silencio: El Legado Templario', en: 'Guardians of Silence Route: The Templar Legacy' },
+    tagline: { es: 'Curvas de roca, asfalto indómito y el susurro del Maestrazgo profundo', en: 'Rock curves, untamed tarmac, and the whisper of deep Maestrazgo' },
+    distance: '380 km',
+    duration: { es: '3 días', en: '3 days' },
+    difficulty: { es: 'Media', en: 'Medium' },
+    curves: 5,
+    terrain: { es: 'Asfalto secundario, carreteras estrechas, puertos revirados y tramos técnicos sin arcén', en: 'Secondary tarmac, narrow roads, winding passes, and technical shoulderless sections' },
+    description: {
+      es: 'Una incursión mística de tres días diseñada para motoristas que buscan evadirse del mundo. Desafiarás leyes de la física entre cañones colosales tallados en roca viva, devorarás el asfalto de la ruta más magnética de España y descansarás en palacios medievales y refugios premium con el rugir del motor aún resonando en el alma.',
+      en: 'A mystical three-day incursion designed for riders seeking to escape the world. You will defy physics between colossal canyons carved in living rock, devour the tarmac of Spain\'s most magnetic road, and rest in medieval palaces and premium lodges with the engine\'s roar still echoing in your soul.',
+    },
+    highlights: {
+      es: [
+        'Morella y Mirambel: imponentes fortalezas medievales amuralladas donde el tiempo se detuvo',
+        'The Silent Route (A-1702): 50 km de curvas perfectas flanqueadas por los Órganos de Montoro',
+        'Puerto del Cuarto Pelado (1.657 m): desafío técnico con vistas de vértigo sobre el horizonte turolense',
+        'El Cañón de Aliaga: paisaje geológico lunar y retorcido que te hará sentir diminuto sobre la moto',
+        'El Túnel de Castellote: pasadizo excavado en la roca que vigila la antigua frontera templaria',
+      ],
+      en: [
+        'Morella and Mirambel: imposing walled medieval fortresses where time stands still',
+        'The Silent Route (A-1702): 50 km of perfect curves flanked by the majestic Órganos de Montoro',
+        'Puerto del Cuarto Pelado (1,657 m): a technical challenge with dizzying views over the Teruel horizon',
+        'Aliaga Canyon: a twisted lunar geological landscape that makes you feel tiny on the bike',
+        'Castellote Tunnel: a spectacular rock-hewn passage guarding the ancient Templar frontier',
+      ],
+    },
+    gallery: [
+      {
+        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/%C3%93rganos_de_Montoro.jpg/1280px-%C3%93rganos_de_Montoro.jpg',
+        caption: {
+          es: 'Ruta del Silencio (A-1702) · Órganos de Montoro',
+          en: 'The Silent Route (A-1702) · Órganos de Montoro',
+        },
+      },
+      {
+        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Municipio_de_Cantavieja_%28Teruel%29.jpg/1280px-Municipio_de_Cantavieja_%28Teruel%29.jpg',
+        caption: {
+          es: 'Cantavieja, capital del Maestrazgo',
+          en: 'Cantavieja, capital of Maestrazgo',
+        },
+      },
+      {
+        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Castillo_de_Morella_01.jpg/1280px-Castillo_de_Morella_01.jpg',
+        caption: {
+          es: 'Morella, fortaleza medieval amurallada',
+          en: 'Morella, walled medieval fortress',
+        },
+      },
+    ],
+  },
+  {
     id: 'silencio',
     routeType: 'trail',
     name: { es: 'Senda del Olvido y el Silencio', en: 'Path of Oblivion and Silence' },
