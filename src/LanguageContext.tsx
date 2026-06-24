@@ -40,7 +40,7 @@ const translations: Record<string, { es: string; en: string }> = {
   'philosophy.p1.desc': { es: 'Olvídate de la logística. Te entregamos una moto impecable y equipación de seguridad completa a tu llegada.', en: 'Forget the logistics. We hand you a pristine motorcycle and complete top-tier safety gear upon your arrival.' },
   'philosophy.p2.title': { es: 'Rutas Secundarias Curadas', en: 'Curated Backroads' },
   'philosophy.p2.desc': { es: 'Sin autopistas aburridas. Rutas seleccionadas curva a curva por expertos locales para descubrir la España que no sale en las guías turísticas.', en: 'No boring highways. Routes curated corner-by-corner by local experts to discover the Spain that isn\'t in any tourist guide.' },
-  'philosophy.p3.title': { es: 'Hospitalidad Premium', en: 'Premium Hospitality' },
+  'philosophy.p3.title': { es: 'Alojamientos Premium', en: 'Premium Hospitality' },
   'philosophy.p3.desc': { es: 'Alojamientos con encanto y la mejor gastronomía local esperándote al final de cada jornada.', en: 'Charming boutique accommodations and the absolute finest local gastronomy awaiting you at the end of each riding day.' },
   'philosophy.p4.title': { es: 'Apoyo y Grupos de 8', en: 'Support & Small Groups (Max 8)' },
   'philosophy.p4.desc': { es: 'Viaja ligero y seguro con nuestro vehículo de asistencia discreto para tu equipaje y guías expertos liderando pequeños grupos ágiles de máximo 8 pilotos.', en: 'Travel light and safe with our discrete support vehicle for your luggage, while expert guides lead agile small groups of max 8 riders.' },
