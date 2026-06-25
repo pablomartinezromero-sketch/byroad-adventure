@@ -1,6 +1,7 @@
 import { Shield, Compass, Heart, Instagram, Facebook, Youtube } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import Logo from './Logo';
+import { appPath } from '../utils/appRoutes';
 
 export default function Footer() {
   const { language } = useLanguage();
@@ -147,7 +148,9 @@ export default function Footer() {
               &copy; {currentYear} Byroad Adventures S.L. {language === 'es' ? 'Todos los derechos reservados.' : 'All rights reserved.'}
             </span>
             <div className="flex gap-4">
-              <a href="#" className="hover:text-stone-300 transition-colors">{language === 'es' ? 'Aviso Legal' : 'Legal Notice'}</a>
+              <a href={appPath('aviso-legal')} className="hover:text-stone-300 transition-colors">
+                {language === 'es' ? 'Aviso Legal' : 'Legal Notice'}
+              </a>
               <a href="#" className="hover:text-stone-300 transition-colors">{language === 'es' ? 'Privacidad' : 'Privacy Policy'}</a>
               <a href="#" className="hover:text-stone-300 transition-colors">{language === 'es' ? 'Condiciones de Alquiler' : 'Rental Terms'}</a>
             </div>

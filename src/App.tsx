@@ -7,6 +7,8 @@ import AdventureForm from './components/AdventureForm';
 import FAQs from './components/FAQs';
 import Footer from './components/Footer';
 import LogoPreview from './components/LogoPreview';
+import LegalNoticePage from './pages/LegalNoticePage';
+import { isLegalNoticePath } from './utils/appRoutes';
 import { TESTIMONIALS } from './data';
 import { Star, MessageSquare } from 'lucide-react';
 import { motion } from 'motion/react';
@@ -18,6 +20,10 @@ export default function App() {
 
   if (showLogoPreview) {
     return <LogoPreview />;
+  }
+
+  if (isLegalNoticePath()) {
+    return <LegalNoticePage />;
   }
 
   return (

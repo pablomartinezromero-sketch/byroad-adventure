@@ -3,6 +3,7 @@ import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useLanguage } from '../LanguageContext';
 import Logo from './Logo';
+import { appPath, isLegalNoticePath } from '../utils/appRoutes';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,6 +38,8 @@ export default function Navbar() {
     }
   };
 
+  const onLegalPage = isLegalNoticePath();
+
   const navLinkClass =
     'font-sans font-medium text-[11px] xl:text-xs text-stone-300 hover:text-orange-500 transition-colors tracking-wider uppercase text-center leading-tight max-w-[4.75rem] xl:max-w-[5.5rem] px-1 whitespace-pre-line';
 
@@ -56,10 +59,12 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 flex items-center gap-4 lg:gap-6">
           {/* Logo */}
           <a
-            href="#"
+            href={onLegalPage ? appPath() : '#'}
             onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: 'smooth' });
+              if (!onLegalPage) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
             }}
             className="group flex-shrink-0"
             id="nav-logo"

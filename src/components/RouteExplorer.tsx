@@ -5,8 +5,8 @@ import { ROUTES, ROUTE_TYPES } from '../data';
 import { ROUTE_EXTRAS } from '../data/routeExtras';
 import { RouteType } from '../types';
 import { useLanguage } from '../LanguageContext';
-import scenicViewImg from '../assets/images/motorcycle_scenic_view_1782234937146.jpg';
 import RoutePhotoCarousel from './RoutePhotoCarousel';
+import { publicAsset } from '../utils/assetUrl';
 
 type RouteContentTab = 'description' | 'detail' | 'accommodations';
 
@@ -45,11 +45,11 @@ export default function RouteExplorer() {
   };
 
   const getRouteImage = (id: string) => {
-    if (id === 'atlantico') {
-      return scenicViewImg;
+    if (id === 'corona') {
+      return publicAsset('images/routes/corona/ordesa.jpg');
     }
-    if (id === 'canones') {
-      return 'https://picsum.photos/seed/canones/800/600';
+    if (id === 'travesia') {
+      return publicAsset('images/routes/travesia/hondarribia.jpg');
     }
     if (id === 'dehesa' || id === 'senderos') {
       return `https://picsum.photos/seed/${id}/800/600`;

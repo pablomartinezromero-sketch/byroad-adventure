@@ -34,11 +34,9 @@ export default function AdventureForm() {
   // Pricing calculations
   const getBasePrice = (routeId: string) => {
     switch (routeId) {
-      case 'canones': return 320;
-      case 'encinas': return 290;
       case 'guardianes': return 720;
-      case 'silencio': return 780;
-      case 'atlantico': return 1080;
+      case 'corona': return 960;
+      case 'travesia': return 1850;
       case 'dehesa': return 350;
       case 'senderos': return 380;
       default: return 500;
@@ -56,16 +54,15 @@ export default function AdventureForm() {
 
   const getDays = (routeId: string) => {
     switch (routeId) {
-      case 'canones':
-      case 'encinas':
       case 'dehesa':
       case 'senderos':
         return 1;
-      case 'silencio':
       case 'guardianes':
         return 3;
-      case 'atlantico':
+      case 'corona':
         return 4;
+      case 'travesia':
+        return 7;
       default:
         return 1;
     }

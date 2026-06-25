@@ -1,4 +1,5 @@
 import { RouteInfo, GearItem, Testimonial, RouteType } from './types';
+import { publicAsset } from './utils/assetUrl';
 import voge900Img from './assets/images/voge-900-ds.jpg';
 import voge800Img from './assets/images/voge-800-rally.jpg';
 import voge625Img from './assets/images/voge-625-dsx.jpg';
@@ -35,58 +36,6 @@ export const ROUTE_TYPES: {
 ];
 
 export const ROUTES: RouteInfo[] = [
-  {
-    id: 'canones',
-    routeType: 'custom',
-    name: { es: 'Ruta de los Cañones Profundos', en: 'Deep Canyons Route' },
-    tagline: { es: 'Gargantas fluviales y curvas de vértigo esculpidas en piedra', en: 'River gorges and thrilling corners carved in stone' },
-    distance: '185 km',
-    duration: { es: '1 día', en: '1 day' },
-    difficulty: { es: 'Media', en: 'Medium' },
-    curves: 5,
-    terrain: { es: 'Asfalto revirado, gargantas de piedra caliza', en: 'Twisting tarmac, limestone gorges' },
-    description: { es: 'Una jornada Custom para saborear cada curva sin prisa. Carreteras esculpidas en acantilados de piedra, miradores de infarto y paradas gastronómicas a tu ritmo.', en: 'A Custom day to savor every corner unhurriedly. Roads carved into stone cliffs, breathtaking viewpoints, and gastronomic stops at your own pace.' },
-    highlights: {
-      es: [
-        'Paso estrecho del Desfiladero de las Ánimas',
-        'Mirador del Nido de Águila a 1.200m',
-        'Almuerzo tradicional en el pueblo colgado de piedra',
-        'Tramo de curvas continuas de herradura del cañón del Sil'
-      ],
-      en: [
-        'Narrow passage of Desfiladero de las Ánimas',
-        'Nido de Águila viewpoint at 1,200m',
-        'Traditional lunch in the hanging stone village',
-        'Hairpin curves section of the Sil Canyon'
-      ]
-    }
-  },
-  {
-    id: 'encinas',
-    routeType: 'custom',
-    name: { es: 'Circuito de las Encinas Milenarias', en: 'Ancient Oak Circuit' },
-    tagline: { es: 'Dehesas, pueblos blancos y carreteras sin reloj', en: 'Meadows, white villages, and roads without a clock' },
-    distance: '160 km',
-    duration: { es: '1 día', en: '1 day' },
-    difficulty: { es: 'Fácil', en: 'Easy' },
-    curves: 4,
-    terrain: { es: 'Carreteras secundarias fluidas y poco transitadas', en: 'Flowing, lightly trafficked backroads' },
-    description: { es: 'Ruta Custom ideal para disfrutar del camino a ritmo medio. Recorre dehesas infinitas, cruce de pueblos con encanto y tramos de asfalto perfecto por debajo de los 200 km.', en: 'An ideal Custom route to enjoy the road at a medium pace. Cross endless meadows, charming villages, and perfect tarmac stretches under 200 km.' },
-    highlights: {
-      es: [
-        'Atardecer en mirador sobre la dehesa',
-        'Parada en bodega local con cata incluida',
-        'Tramo de curvas enlazadas sin tráfico pesado',
-        'Pueblo amurallado para paseo a pie al final del día'
-      ],
-      en: [
-        'Sunset viewpoint over the meadow landscape',
-        'Stop at a local winery with tasting included',
-        'Linked corner sections free of heavy traffic',
-        'Walled village for a leisurely walk at day\'s end'
-      ]
-    }
-  },
   {
     id: 'guardianes',
     routeType: 'custom',
@@ -142,56 +91,107 @@ export const ROUTES: RouteInfo[] = [
     ],
   },
   {
-    id: 'silencio',
-    routeType: 'trail',
-    name: { es: 'Senda del Olvido y el Silencio', en: 'Path of Oblivion and Silence' },
-    tagline: { es: 'Pueblos medievales desiertos y valles donde el tiempo se detuvo', en: 'Deserted medieval villages and valleys frozen in time' },
-    distance: '450 km',
-    duration: { es: '3 días', en: '3 days' },
-    difficulty: { es: 'Fácil', en: 'Easy' },
-    curves: 4,
-    terrain: { es: 'Carreteras rurales secundarias con poco tráfico', en: 'Secondary rural roads with little to no traffic' },
-    description: { es: 'Trail de varias jornadas con largas tiradas diarias por una de las regiones más despobladas de la península. Bosques cerrados, puertos solitarios y horas sobre la moto cada día.', en: 'A multi-day Trail with long daily stretches through one of the peninsula\'s most unpopulated regions. Deep forests, solitary passes, and hours in the saddle each day.' },
+    id: 'corona',
+    routeType: 'custom',
+    name: { es: 'Corona del Pirineo: Hecho, Roncal y Benasque', en: 'Pyrenean Crown: Hecho, Roncal and Benasque' },
+    tagline: { es: 'Cuatro días entre fronteras, circos glaciares y villas de piedra', en: 'Four days between borders, glacial cirques, and stone villages' },
+    distance: '950 km',
+    duration: { es: '4 días', en: '4 days' },
+    difficulty: { es: 'Media-Alta', en: 'Medium-High' },
+    curves: 5,
+    terrain: { es: 'Asfalto secundario, valles pirenaicos, puertos revirados y tramos estrechos sin arcén', en: 'Secondary tarmac, Pyrenean valleys, winding passes, and narrow shoulderless sections' },
+    description: {
+      es: 'Una travesía Custom de cuatro días por el Pirineo aragonés y navarro: viernes tarde de entrada por el Valle de Hecho, sábado y domingo completos entre Belagua, Ordesa y Aínsa, y regreso el lunes por la tarde tras recorrer el Valle de Benasque. Carreteras secundarias, paisajes de vértigo y alojamientos con alma de montaña.',
+      en: 'A four-day Custom crossing of the Aragonese and Navarrese Pyrenees: Friday afternoon entry through the Hecho Valley, full Saturday and Sunday between Belagua, Ordesa, and Aínsa, and Monday afternoon return after riding the Benasque Valley. Secondary roads, dizzying landscapes, and mountain lodges with soul.',
+    },
     highlights: {
       es: [
-        'Visita privada a un monasterio románico abandonado',
-        'Cruzar el bosque templado de hayas centenarias',
-        'Pernoctación en un pazo histórico del siglo XVII',
-        'Carreteras de montaña estrechas sin línea divisoria central'
+        'Valle de Hecho y monasterio de San Pedro de Siresa: románico en la roca viva',
+        'Ansó, Roncal y Ochagavía: la Navarra más auténtica sobre dos ruedas',
+        'Belagua: circo glaciar y sensación alpina en pleno Pirineo',
+        'Ordesa y Torla: el mito del Monte Perdido desde la moto',
+        'Aínsa: villa medieval sobre el río Ara, una de las más bellas de España',
+        'Valle de Benasque y vistas al Aneto: cierre épico antes del regreso',
       ],
       en: [
-        'Private visit to an abandoned Romanesque monastery',
-        'Cross a temperate forest of ancient beech trees',
-        'Overnight stay in a historic 17th-century manor (Pazo)',
-        'Narrow mountain roads with no dividing central line'
-      ]
-    }
+        'Hecho Valley and San Pedro de Siresa monastery: Romanesque carved in living rock',
+        'Ansó, Roncal, and Ochagavía: the most authentic Navarra on two wheels',
+        'Belagua: glacial cirque and alpine atmosphere deep in the Pyrenees',
+        'Ordesa and Torla: the Monte Perdido legend from the saddle',
+        'Aínsa: medieval village above the Ara river, one of Spain\'s finest',
+        'Benasque Valley and Aneto views: an epic finale before heading home',
+      ],
+    },
+    gallery: [
+      {
+        src: publicAsset('images/routes/corona/ordesa.jpg'),
+        caption: {
+          es: 'Valle de Ordesa · Parque Nacional',
+          en: 'Ordesa Valley · National Park',
+        },
+      },
+      {
+        src: publicAsset('images/routes/corona/ochagavia.jpg'),
+        caption: {
+          es: 'Ochagavía, joya del Valle de Salazar',
+          en: 'Ochagavía, jewel of the Salazar Valley',
+        },
+      },
+      {
+        src: publicAsset('images/routes/corona/benasque.jpg'),
+        caption: {
+          es: 'Benasque y el macizo del Aneto',
+          en: 'Benasque and the Aneto massif',
+        },
+      },
+    ],
   },
   {
-    id: 'atlantico',
+    id: 'travesia',
     routeType: 'trail',
-    name: { es: 'Acantilados Atlánticos Salvajes', en: 'Wild Atlantic Cliffs' },
-    tagline: { es: 'El rugido del océano bajo tus neumáticos en cabos indómitos', en: 'The roar of the ocean under your tires at untamed capes' },
-    distance: '580 km',
-    duration: { es: '4 días', en: '4 days' },
-    difficulty: { es: 'Avanzada', en: 'Advanced' },
+    name: { es: 'La Gran Travesía: Pirineo Íntegro (Ida y Vuelta)', en: 'The Great Crossing: Full Pyrenees (Out & Back)' },
+    tagline: { es: 'Siete días y 2.200 km cruzando España y Francia por los puertos más legendarios', en: 'Seven days and 2,200 km across Spain and France via the most legendary passes' },
+    distance: '2.260 km',
+    duration: { es: '7 días', en: '7 days' },
+    difficulty: { es: 'Alta', en: 'High' },
     curves: 5,
-    terrain: { es: 'Asfalto costero técnico, microclimas cambiantes', en: 'Technical coastal tarmac, changing microclimates' },
-    description: { es: 'Trail exigente con jornadas largas bordeando el continente. Curvas técnicas, vientos marinos y tramos de más de 150 km diarios para pilotos que quieren exprimir cada día.', en: 'A demanding Trail with long days bordering the continent. Technical corners, marine winds, and daily stretches exceeding 150 km for riders who want to make the most of every day.' },
+    terrain: { es: 'Largas tiradas diarias (300+ km), puertos de montaña, frontera España-Francia y carreteras secundarias', en: 'Long daily stretches (300+ km), mountain passes, Spain–France border crossings, and secondary roads' },
+    description: {
+      es: 'Trail de siete jornadas en circuito cerrado: salida y llegada en el Atlántico (Hondarribia). Ida por el lado español de oeste a este — Baztán, Roncal, Ordesa, Benasque, Arán y Cerdanya — y vuelta por la vertiente francesa enlazando Tourmalet, Aubisque, Gavarnie, Canigó y Pourtalet. Mínimo 300 km diarios para exprimir el Pirineo entero.',
+      en: 'A seven-day Trail loop: start and finish on the Atlantic (Hondarribia). Outbound on the Spanish side west to east — Baztan, Roncal, Ordesa, Benasque, Aran, and Cerdanya — and return on the French side linking Tourmalet, Aubisque, Gavarnie, Canigó, and Pourtalet. Minimum 300 km per day to experience the full Pyrenees.',
+    },
     highlights: {
       es: [
-        'Ruta por el faro más occidental del continente',
-        'Tramo técnico de subida al Monte del Trueno',
-        'Cena de marisco local fresco en un puerto pesquero tradicional',
-        'Curvas infinitas al filo de acantilados de 300 metros de caída'
+        'Circuito ida y vuelta: Atlántico → Pirineo → Atlántico',
+        'Ida por España: Belagua, Monte Perdido, Aneto, Bonaigua y Puigcerdà',
+        'Vuelta por Francia: Canigó, Collioure, Pailhères, Tourmalet y Aubisque',
+        'Col du Tourmalet, Aubisque y Pourtalet — puertos míticos del Tour',
+        'Canfranc-Estación y Hondarribia: cierre épico junto al mar',
+        'Jornadas Trail de 300+ km con paradas gastronómicas seleccionadas',
       ],
       en: [
-        'Ride along the westernmost lighthouse on the mainland',
-        'Technical climbing stretch up Monte del Trueno',
-        'Dinner featuring fresh local seafood at a traditional fishing port',
-        'Endless sweeping corners bordering 300-meter drop cliffs'
-      ]
-    }
+        'Out-and-back loop: Atlantic → Pyrenees → Atlantic',
+        'Outbound via Spain: Belagua, Monte Perdido, Aneto, Bonaigua, and Puigcerdà',
+        'Return via France: Canigó, Collioure, Pailhères, Tourmalet, and Aubisque',
+        'Col du Tourmalet, Aubisque, and Pourtalet — legendary Tour de France passes',
+        'Canfranc Station and Hondarribia: an epic seaside finale',
+        '300+ km Trail days with hand-picked gastronomic stops',
+      ],
+    },
+    gallery: [
+      {
+        src: publicAsset('images/routes/travesia/hondarribia.jpg'),
+        caption: { es: 'Hondarribia · Salida y llegada atlántica', en: 'Hondarribia · Atlantic start and finish' },
+      },
+      {
+        src: publicAsset('images/routes/travesia/tourmalet.jpg'),
+        caption: { es: 'Col du Tourmalet · Vuelta por Francia', en: 'Col du Tourmalet · Return through France' },
+      },
+      {
+        src: publicAsset('images/routes/travesia/canfranc.jpg'),
+        caption: { es: 'Estación Internacional de Canfranc', en: 'Canfranc International Station' },
+      },
+    ],
   },
   {
     id: 'dehesa',
@@ -384,10 +384,10 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Carlos Mendoza',
     role: { es: 'Rider desde Barcelona', en: 'Rider from Barcelona' },
     quote: {
-      es: 'La experiencia de rodar por carreteras secundarias gallegas que no aparecen en ninguna guía turística fue increíble. No tuve que llevar mi moto ni preocuparme por facturar mi casco. La Voge 900DSX que me entregaron estaba impecable, y el traje Revit Poseidon me mantuvo seco bajo el diluvio costero.',
-      en: 'The experience of riding through secondary roads in Galicia that do not appear in any tourist guide was incredible. I did not have to bring my bike or worry about checking my helmet. The Voge 900DSX they provided was immaculate, and the Revit Poseidon suit kept me completely dry during the coastal storm.'
+      es: 'Dos mil kilómetros de Pirineo en una semana: Tourmalet, Aubisque, Ordesa y el regreso por Canfranc hasta Hondarribia. Jornadas de 300 km que te dejan la retina llena. La Voge 900DSX impecable y el soporte logístico invisible.',
+      en: 'Two thousand kilometres of Pyrenees in one week: Tourmalet, Aubisque, Ordesa, and the return via Canfranc to Hondarribia. 300 km days that fill your eyes. The Voge 900DSX was flawless and logistical support was invisible.',
     },
-    route: { es: 'Acantilados Atlánticos Salvajes', en: 'Wild Atlantic Cliffs' },
+    route: { es: 'La Gran Travesía: Pirineo Íntegro', en: 'The Great Crossing: Full Pyrenees' },
     rating: 5
   },
   {
@@ -395,10 +395,10 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Elena Rostova',
     role: { es: 'Aventurera desde Múnich', en: 'Adventurer from Munich' },
     quote: {
-      es: 'Detesto los grupos turísticos abarrotados. Con Byroad Adventures sentí que estaba explorando sola con mis amigos, pero con la tranquilidad de tener un GPS cargado con desvíos fascinantes y un soporte mecánico discreto pero atento. Las chaquetas de cuero y cascos vintage encajaban perfecto con la mística del viaje.',
-      en: 'I hate crowded tour groups. With Byroad Adventures, I felt like I was exploring alone with my friends, but with the peace of mind of having a GPS loaded with fascinating detours and a discrete yet attentive mechanical support. The leather jackets and vintage helmets fit the tour mystique perfectly.'
+      es: 'La vuelta por el lado francés es otro mundo: Collioure, Tourmalet, Gavarnie… Todo con GPS pensado y hoteles con encanto cada noche. Para rodar muchos kilómetros sin perderte nada, esta Trail es la definición de aventura organizada.',
+      en: 'The return leg on the French side is another world: Collioure, Tourmalet, Gavarnie… All with thoughtful GPS routes and charming hotels every night. For riding long miles without missing a thing, this Trail is organized adventure defined.',
     },
-    route: { es: 'Senda del Olvido y el Silencio', en: 'Path of Oblivion and Silence' },
+    route: { es: 'La Gran Travesía: Pirineo Íntegro', en: 'The Great Crossing: Full Pyrenees' },
     rating: 5
   },
   {
@@ -406,10 +406,10 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Santi Villa',
     role: { es: 'Apasionado de las curvas', en: 'Cornering Enthusiast' },
     quote: {
-      es: 'El asfalto del Desfiladero de las Ánimas en la ruta de los Cañones es un sueño húmedo para cualquier motociclista. Curvas perfectas, tráfico inexistente, y la tranquilidad de llevar una Voge 625DSX con neumáticos nuevos y suspensión ajustada a mi peso. El servicio merece cada céntimo.',
-      en: 'The tarmac of the Desfiladero de las Ánimas on the Canyons route is an absolute dream for any motorcyclist. Perfect curves, non-existent traffic, and the peace of mind of riding a Voge 625DSX with brand new tires and suspension dialed in for my weight. Outstanding service!'
+      es: 'Las curvas del Maestrazgo en la ruta de los Guardianes del Silencio son pura adicción. The Silent Route, Morella al atardecer y alojamientos con historia: todo fluye sin prisas pero con intensidad. La Voge 625DSX con suspensión ajustada fue la compañera perfecta.',
+      en: 'The Maestrazgo curves on the Guardians of Silence route are pure addiction. The Silent Route, Morella at sunset, and historic lodgings — everything flows unhurried yet intense. The Voge 625DSX with dialed-in suspension was the perfect companion.',
     },
-    route: { es: 'Ruta de los Cañones Profundos', en: 'Deep Canyons Route' },
+    route: { es: 'Ruta de los Guardianes del Silencio', en: 'Guardians of Silence Route' },
     rating: 5
   }
 ];

@@ -1,4 +1,5 @@
 import { RouteAccommodation, RouteStage, Localized } from '../types';
+import { publicAsset } from '../utils/assetUrl';
 
 function stages(es: RouteStage[], en: RouteStage[]): Localized<RouteStage[]> {
   return { es, en };
@@ -18,94 +19,6 @@ export const ROUTE_EXTRAS: Record<
   string,
   { routeDetail: Localized<RouteStage[]>; accommodations: RouteAccommodation[] }
 > = {
-  canones: {
-    routeDetail: stages(
-      [
-        {
-          title: { es: 'Mañana — Gargantas del Sil', en: 'Morning — Sil Gorges' },
-          distance: '85 km',
-          content: {
-            es: 'Salida suave hacia el Desfiladero de las Ánimas. Carretera estrecha entre paredes de piedra caliza y curvas enlazadas sin prisa.',
-            en: 'A gentle start toward Desfiladero de las Ánimas. A narrow road between limestone walls and unhurried linked corners.',
-          },
-        },
-        {
-          title: { es: 'Tarde — Miradores y pueblo colgado', en: 'Afternoon — Viewpoints and hanging village' },
-          distance: '100 km',
-          content: {
-            es: 'Subida al Nido de Águila (1.200 m), tramo de herraduras del cañón y parada gastronómica en el pueblo de piedra.',
-            en: 'Climb to Nido de Águila (1,200 m), canyon hairpin section, and a gastronomic stop in the stone village.',
-          },
-        },
-      ],
-      [
-        {
-          title: { es: 'Morning — Sil Gorges', en: 'Morning — Sil Gorges' },
-          distance: '85 km',
-          content: {
-            es: 'Salida suave hacia el Desfiladero de las Ánimas. Carretera estrecha entre paredes de piedra caliza y curvas enlazadas sin prisa.',
-            en: 'A gentle start toward Desfiladero de las Ánimas. A narrow road between limestone walls and unhurried linked corners.',
-          },
-        },
-        {
-          title: { es: 'Afternoon — Viewpoints and hanging village', en: 'Afternoon — Viewpoints and hanging village' },
-          distance: '100 km',
-          content: {
-            es: 'Subida al Nido de Águila (1.200 m), tramo de herraduras del cañón y parada gastronómica en el pueblo de piedra.',
-            en: 'Climb to Nido de Águila (1,200 m), canyon hairpin section, and a gastronomic stop in the stone village.',
-          },
-        },
-      ]
-    ),
-    accommodations: [
-      {
-        name: { es: 'Casa Rural El Mirador del Cañón', en: 'El Mirador del Cañón Country House' },
-        location: { es: 'Entorno del cañón del Sil', en: 'Sil Canyon area' },
-        type: { es: 'Casa rural con encanto', en: 'Charming country house' },
-        description: {
-          es: 'Pernoctación en entorno natural tras la jornada, con cena local y desayuno contemplando las gargantas.',
-          en: 'Overnight in a natural setting after the ride, with local dinner and breakfast overlooking the gorges.',
-        },
-        image: 'https://picsum.photos/seed/mirador-canon/800/500',
-      },
-    ],
-  },
-  encinas: {
-    routeDetail: stages(
-      [
-        {
-          title: { es: 'Jornada única — Dehesas y encinas milenarias', en: 'Single day — Meadows and ancient oaks' },
-          distance: '160 km',
-          content: {
-            es: 'Circuito fluido por carreteras secundarias: dehesas abiertas, pueblos blancos, bodega con cata y atardecer en mirador.',
-            en: 'A flowing loop on secondary roads: open meadows, white villages, winery tasting, and sunset at a viewpoint.',
-          },
-        },
-      ],
-      [
-        {
-          title: { es: 'Single day — Meadows and ancient oaks', en: 'Single day — Meadows and ancient oaks' },
-          distance: '160 km',
-          content: {
-            es: 'Circuito fluido por carreteras secundarias: dehesas abiertas, pueblos blancos, bodega con cata y atardecer en mirador.',
-            en: 'A flowing loop on secondary roads: open meadows, white villages, winery tasting, and sunset at a viewpoint.',
-          },
-        },
-      ]
-    ),
-    accommodations: [
-      {
-        name: { es: 'Hacienda de la Dehesa', en: 'Hacienda de la Dehesa' },
-        location: { es: 'Corazón de la dehesa extremeña', en: 'Heart of the Extremadura meadow' },
-        type: { es: 'Boutique rural', en: 'Rural boutique' },
-        description: {
-          es: 'Alojamiento con patio interior, cocina de proximidad y ambiente tranquilo para cerrar el día a ritmo Custom.',
-          en: 'Lodging with inner courtyard, farm-to-table cuisine, and a calm atmosphere to end the Custom-paced day.',
-        },
-        image: 'https://picsum.photos/seed/hacienda-dehesa/800/500',
-      },
-    ],
-  },
   guardianes: {
     routeDetail: stages(
       [
@@ -350,75 +263,629 @@ Gear: As a mid/high mountain area (you'll easily exceed 1,300 m on the passes), 
       },
     ],
   },
-  silencio: {
+  corona: {
     routeDetail: stages(
       [
         {
-          title: { es: 'Día 1 — Valles despoblados', en: 'Day 1 — Unpopulated valleys' },
-          distance: '~150 km',
-          content: { es: 'Entrada a la comarca más silenciosa: carreteras sin línea central y primer puerto solitario.', en: 'Entry into the quietest region: roads with no center line and the first solitary pass.' },
+          title: { es: 'Día 1 (Viernes tarde) — Entrada mística por el Valle de Hecho', en: 'Day 1 (Friday afternoon) — Mystical entry through the Hecho Valley' },
+          content: {
+            es: `El objetivo de esta tarde es abandonar la autovía y entrar en modo montaña. Punto de encuentro habitual: Jaca o salida directa desde Zaragoza por la A-23.
+
+Ruta aproximada: Zaragoza → A-23 → Jaca → A-176 (Valle de Hecho) → Siresa → Hecho.
+
+El tramo: La A-176 es un preludio perfecto — curvas enlazadas, paredes de roca y pueblos de piedra. Parada recomendada en el Monasterio de San Pedro de Siresa (s. XI) o breve desvío a la Selva de Oza si la luz lo permite.
+
+Cena y alojamiento con encanto:
+• Usón Hotel (Siresa/Hecho) — piedra, madera y entorno de montaña.
+• Alternativa: Casa Ricaso en el pueblo de Hecho.
+
+Restaurante: Casa Lastor o cocina de montaña en el casco de Hecho (chistorra, setas, cordero).`,
+            en: `The goal this afternoon is to leave the highway behind and switch to mountain mode. Usual meeting point: Jaca or direct departure from Zaragoza via the A-23.
+
+Approximate route: Zaragoza → A-23 → Jaca → A-176 (Hecho Valley) → Siresa → Hecho.
+
+The stretch: The A-176 is a perfect prelude — linked corners, rock walls, and stone villages. Recommended stop at San Pedro de Siresa monastery (11th century) or a brief detour to Selva de Oza if light allows.
+
+Dinner and charming lodging:
+• Usón Hotel (Siresa/Hecho) — stone, wood, and mountain atmosphere.
+• Alternative: Casa Ricaso in Hecho village.
+
+Dining: Casa Lastor or mountain cuisine in Hecho (sausage, mushrooms, lamb).`,
+          },
         },
         {
-          title: { es: 'Día 2 — Bosque de hayas', en: 'Day 2 — Beech forest' },
-          distance: '~150 km',
-          content: { es: 'Travesía del hayedo centenario y visita al monasterio románico abandonado.', en: 'Crossing the ancient beech forest and visit to the abandoned Romanesque monastery.' },
+          title: { es: 'Día 2 (Sábado) — Ansó, Roncal y Belagua', en: 'Day 2 (Saturday) — Ansó, Roncal and Belagua' },
+          content: {
+            es: `El día grande del Pirineo navarro. Kilómetros de curvas en valles legendarios y uno de los paisajes más brutales del norte peninsular.
+
+Ruta: Hecho → CV-678 (valle de Ansó) → Berroeta → NA-2010 (valle de Roncal) → Isaba → subida a Belagua → bajada → Ochagavía / Roncal.
+
+Por la mañana:
+La CV-678 por Ansó es estrecha, verde y cinematográfica. Cruza el valle de Roncal con su quesería D.O. y arquitectura pastoral. La subida a Belagua te mete en un circo glaciar con sensación alpina pura.
+
+Almuerzo con encanto: sidrería o asador en Roncal, o mesón en Ochagavía — uno de los pueblos más bonitos de Navarra.
+
+Cena y alojamiento premium:
+• Casa Gatsazarra (Ansó) — encanto rural en valle espectacular.
+• Hotel Roncal o alojamientos en el valle — ambiente íntimo tras Belagua.`,
+            en: `The big Navarrese Pyrenees day. Kilometers of curves in legendary valleys and one of northern Spain's most brutal landscapes.
+
+Route: Hecho → CV-678 (Ansó valley) → Berroeta → NA-2010 (Roncal valley) → Isaba → climb to Belagua → descent → Ochagavía / Roncal.
+
+Morning:
+The CV-678 through Ansó is narrow, green, and cinematic. Cross Roncal valley with its D.O. cheese and pastoral architecture. The climb to Belagua drops you into a glacial cirque with pure alpine atmosphere.
+
+Charming lunch: cider house or grill in Roncal, or an inn in Ochagavía — one of Navarra's most beautiful villages.
+
+Dinner and premium lodging:
+• Casa Gatsazarra (Ansó) — rural charm in a spectacular valley.
+• Hotel Roncal or valley lodgings — intimate atmosphere after Belagua.`,
+          },
         },
         {
-          title: { es: 'Día 3 — Regreso por la sierra', en: 'Day 3 — Return through the sierra' },
-          distance: '~150 km',
-          content: { es: 'Última tirada Trail por crestas y valles antes del cierre del circuito.', en: 'Final Trail stretch along ridges and valleys before closing the loop.' },
+          title: { es: 'Día 3 (Domingo) — Ordesa, Torla y Aínsa', en: 'Day 3 (Sunday) — Ordesa, Torla and Aínsa' },
+          content: {
+            es: `Domingo de iconos pirenaicos: el Parque Nacional de Ordesa y la villa medieval de Aínsa.
+
+Ruta: Roncal/Ansó → Biescas → A-1603 → Broto → Torla → miradores de Ordesa → A-138 (garganta del Ara) → Aínsa.
+
+Por la mañana:
+La A-1603 hasta Torla es la antesala del Monte Perdido. Parada en miradores del valle de Ordesa. Si te apetece estirar las piernas: paseo corto hacia el Circo de Soaso (casco en la mano).
+
+Almuerzo del domingo: Mesón de L'Ainsa o Restaurante Callizo — cocina altoaragonesa en plaza medieval.
+
+Cena y alojamiento con encanto:
+• Hotel Aínsa — en la plaza, experiencia única para moteros con gusto.
+• Parador de Bielsa — si prefieres subir un nivel (spa y entorno de montaña).`,
+            en: `A Sunday of Pyrenean icons: Ordesa National Park and the medieval village of Aínsa.
+
+Route: Roncal/Ansó → Biescas → A-1603 → Broto → Torla → Ordesa viewpoints → A-138 (Ara gorge) → Aínsa.
+
+Morning:
+The A-1603 to Torla is the prelude to Monte Perdido. Stop at Ordesa valley viewpoints. Fancy a stretch? Short walk toward Circo de Soaso (helmet in hand).
+
+Sunday lunch: Mesón de L'Ainsa or Restaurante Callizo — high Aragon cuisine in a medieval square.
+
+Dinner and charming lodging:
+• Hotel Aínsa — on the main square, a unique experience for discerning riders.
+• Parador de Bielsa — if you prefer to step up (spa and mountain setting).`,
+          },
+        },
+        {
+          title: { es: 'Día 4 (Lunes) — Benasque y regreso por la tarde', en: 'Day 4 (Monday) — Benasque and afternoon return' },
+          content: {
+            es: `Cierre en altura y vuelta a casa sin prisas por la tarde.
+
+Ruta mañana: Aínsa/Bielsa → Graus → A-139 (Valle de Benasque) → Castejón de Sos → Benasque → miradores hacia el Aneto.
+
+Ruta tarde (regreso): Benasque → A-139 → Graus → A-22 / N-330 → Jaca → A-23 → Zaragoza.
+
+Parada final: Benasque con el macizo del Aneto al fondo. Desvío opcional a Canfranc-Estación (30 min) si el tiempo acompaña — la estación internacional es pura fotogenia.
+
+Comida de despedida: Hotel Ciria o Borda Beret en Benasque. En el regreso, parada en Graus antes de enlazar con autovía.
+
+Tarde: retorno relajado con la retina llena de curvas y piedra.`,
+            en: `A high-altitude finale and an unhurried afternoon ride home.
+
+Morning route: Aínsa/Bielsa → Graus → A-139 (Benasque Valley) → Castejón de Sos → Benasque → viewpoints toward Aneto.
+
+Afternoon return: Benasque → A-139 → Graus → A-22 / N-330 → Jaca → A-23 → Zaragoza.
+
+Final stop: Benasque with the Aneto massif in the background. Optional detour to Canfranc Station (30 min) if time allows — the international station is pure photo gold.
+
+Farewell lunch: Hotel Ciria or Borda Beret in Benasque. On the return, a stop in Graus before linking to the highway.
+
+Afternoon: relaxed ride home with your eyes full of curves and stone.`,
+          },
+        },
+        {
+          title: { es: 'Consejos para la ruta', en: 'Route tips' },
+          content: {
+            es: `Gasolina: Reposta en Hecho, Roncal, Biescas, Aínsa y Benasque. En Belagua y puertos altos no cuentes con servicios.
+
+Restricciones: Belagua y algunos accesos de montaña tienen horarios o limitaciones según temporada (confirmar antes de salir, especialmente fuera de julio-agosto).
+
+Ritmo: Las NA-, CV- y A- secundarias son estrechas y sin arcén. El valor está en el trazado y el paisaje, no en los km/h.
+
+Equipación: Por encima de 1.500–1.800 m hace frío incluso en verano. Capa térmica y guantes de recambio. Reserva alojamientos con antelación en pueblos pequeños.`,
+            en: `Fuel: Refuel in Hecho, Roncal, Biescas, Aínsa, and Benasque. Don't count on services in Belagua or high passes.
+
+Restrictions: Belagua and some mountain access roads have seasonal schedules or limitations (confirm before departure, especially outside July–August).
+
+Pace: NA-, CV-, and secondary A-roads are narrow with no shoulder. Value is in the lines and landscape, not km/h.
+
+Gear: Above 1,500–1,800 m it gets cold even in summer. Pack a thermal layer and spare gloves. Book small-village lodging well in advance.`,
+          },
         },
       ],
       [
         {
-          title: { es: 'Day 1 — Unpopulated valleys', en: 'Day 1 — Unpopulated valleys' },
-          distance: '~150 km',
-          content: { es: 'Entrada a la comarca más silenciosa: carreteras sin línea central y primer puerto solitario.', en: 'Entry into the quietest region: roads with no center line and the first solitary pass.' },
+          title: { es: 'Day 1 (Friday afternoon) — Mystical entry through the Hecho Valley', en: 'Day 1 (Friday afternoon) — Mystical entry through the Hecho Valley' },
+          content: {
+            es: `The goal this afternoon is to leave the highway behind and switch to mountain mode. Usual meeting point: Jaca or direct departure from Zaragoza via the A-23.
+
+Approximate route: Zaragoza → A-23 → Jaca → A-176 (Hecho Valley) → Siresa → Hecho.
+
+The stretch: The A-176 is a perfect prelude — linked corners, rock walls, and stone villages. Recommended stop at San Pedro de Siresa monastery (11th century) or a brief detour to Selva de Oza if light allows.
+
+Dinner and charming lodging:
+• Usón Hotel (Siresa/Hecho) — stone, wood, and mountain atmosphere.
+• Alternative: Casa Ricaso in Hecho village.
+
+Dining: Casa Lastor or mountain cuisine in Hecho (sausage, mushrooms, lamb).`,
+            en: `The goal this afternoon is to leave the highway behind and switch to mountain mode. Usual meeting point: Jaca or direct departure from Zaragoza via the A-23.
+
+Approximate route: Zaragoza → A-23 → Jaca → A-176 (Hecho Valley) → Siresa → Hecho.
+
+The stretch: The A-176 is a perfect prelude — linked corners, rock walls, and stone villages. Recommended stop at San Pedro de Siresa monastery (11th century) or a brief detour to Selva de Oza if light allows.
+
+Dinner and charming lodging:
+• Usón Hotel (Siresa/Hecho) — stone, wood, and mountain atmosphere.
+• Alternative: Casa Ricaso in Hecho village.
+
+Dining: Casa Lastor or mountain cuisine in Hecho (sausage, mushrooms, lamb).`,
+          },
         },
         {
-          title: { es: 'Day 2 — Beech forest', en: 'Day 2 — Beech forest' },
-          distance: '~150 km',
-          content: { es: 'Travesía del hayedo centenario y visita al monasterio románico abandonado.', en: 'Crossing the ancient beech forest and visit to the abandoned Romanesque monastery.' },
+          title: { es: 'Day 2 (Saturday) — Ansó, Roncal and Belagua', en: 'Day 2 (Saturday) — Ansó, Roncal and Belagua' },
+          content: {
+            es: `The big Navarrese Pyrenees day. Kilometers of curves in legendary valleys and one of northern Spain's most brutal landscapes.
+
+Route: Hecho → CV-678 (Ansó valley) → Berroeta → NA-2010 (Roncal valley) → Isaba → climb to Belagua → descent → Ochagavía / Roncal.
+
+Morning:
+The CV-678 through Ansó is narrow, green, and cinematic. Cross Roncal valley with its D.O. cheese and pastoral architecture. The climb to Belagua drops you into a glacial cirque with pure alpine atmosphere.
+
+Charming lunch: cider house or grill in Roncal, or an inn in Ochagavía — one of Navarra's most beautiful villages.
+
+Dinner and premium lodging:
+• Casa Gatsazarra (Ansó) — rural charm in a spectacular valley.
+• Hotel Roncal or valley lodgings — intimate atmosphere after Belagua.`,
+            en: `The big Navarrese Pyrenees day. Kilometers of curves in legendary valleys and one of northern Spain's most brutal landscapes.
+
+Route: Hecho → CV-678 (Ansó valley) → Berroeta → NA-2010 (Roncal valley) → Isaba → climb to Belagua → descent → Ochagavía / Roncal.
+
+Morning:
+The CV-678 through Ansó is narrow, green, and cinematic. Cross Roncal valley with its D.O. cheese and pastoral architecture. The climb to Belagua drops you into a glacial cirque with pure alpine atmosphere.
+
+Charming lunch: cider house or grill in Roncal, or an inn in Ochagavía — one of Navarra's most beautiful villages.
+
+Dinner and premium lodging:
+• Casa Gatsazarra (Ansó) — rural charm in a spectacular valley.
+• Hotel Roncal or valley lodgings — intimate atmosphere after Belagua.`,
+          },
         },
         {
-          title: { es: 'Day 3 — Return through the sierra', en: 'Day 3 — Return through the sierra' },
-          distance: '~150 km',
-          content: { es: 'Última tirada Trail por crestas y valles antes del cierre del circuito.', en: 'Final Trail stretch along ridges and valleys before closing the loop.' },
+          title: { es: 'Day 3 (Sunday) — Ordesa, Torla and Aínsa', en: 'Day 3 (Sunday) — Ordesa, Torla and Aínsa' },
+          content: {
+            es: `A Sunday of Pyrenean icons: Ordesa National Park and the medieval village of Aínsa.
+
+Route: Roncal/Ansó → Biescas → A-1603 → Broto → Torla → Ordesa viewpoints → A-138 (Ara gorge) → Aínsa.
+
+Morning:
+The A-1603 to Torla is the prelude to Monte Perdido. Stop at Ordesa valley viewpoints. Fancy a stretch? Short walk toward Circo de Soaso (helmet in hand).
+
+Sunday lunch: Mesón de L'Ainsa or Restaurante Callizo — high Aragon cuisine in a medieval square.
+
+Dinner and charming lodging:
+• Hotel Aínsa — on the main square, a unique experience for discerning riders.
+• Parador de Bielsa — if you prefer to step up (spa and mountain setting).`,
+            en: `A Sunday of Pyrenean icons: Ordesa National Park and the medieval village of Aínsa.
+
+Route: Roncal/Ansó → Biescas → A-1603 → Broto → Torla → Ordesa viewpoints → A-138 (Ara gorge) → Aínsa.
+
+Morning:
+The A-1603 to Torla is the prelude to Monte Perdido. Stop at Ordesa valley viewpoints. Fancy a stretch? Short walk toward Circo de Soaso (helmet in hand).
+
+Sunday lunch: Mesón de L'Ainsa or Restaurante Callizo — high Aragon cuisine in a medieval square.
+
+Dinner and charming lodging:
+• Hotel Aínsa — on the main square, a unique experience for discerning riders.
+• Parador de Bielsa — if you prefer to step up (spa and mountain setting).`,
+          },
+        },
+        {
+          title: { es: 'Day 4 (Monday) — Benasque and afternoon return', en: 'Day 4 (Monday) — Benasque and afternoon return' },
+          content: {
+            es: `A high-altitude finale and an unhurried afternoon ride home.
+
+Morning route: Aínsa/Bielsa → Graus → A-139 (Benasque Valley) → Castejón de Sos → Benasque → viewpoints toward Aneto.
+
+Afternoon return: Benasque → A-139 → Graus → A-22 / N-330 → Jaca → A-23 → Zaragoza.
+
+Final stop: Benasque with the Aneto massif in the background. Optional detour to Canfranc Station (30 min) if time allows.
+
+Farewell lunch: Hotel Ciria or Borda Beret in Benasque. On the return, a stop in Graus before linking to the highway.`,
+            en: `A high-altitude finale and an unhurried afternoon ride home.
+
+Morning route: Aínsa/Bielsa → Graus → A-139 (Benasque Valley) → Castejón de Sos → Benasque → viewpoints toward Aneto.
+
+Afternoon return: Benasque → A-139 → Graus → A-22 / N-330 → Jaca → A-23 → Zaragoza.
+
+Final stop: Benasque with the Aneto massif in the background. Optional detour to Canfranc Station (30 min) if time allows.
+
+Farewell lunch: Hotel Ciria or Borda Beret in Benasque. On the return, a stop in Graus before linking to the highway.`,
+          },
+        },
+        {
+          title: { es: 'Route tips', en: 'Route tips' },
+          content: {
+            es: `Fuel: Refuel in Hecho, Roncal, Biescas, Aínsa, and Benasque. Don't count on services in Belagua or high passes.
+
+Restrictions: Belagua and some mountain access roads have seasonal schedules or limitations (confirm before departure).
+
+Pace: Narrow roads with no shoulder — enjoy the lines and landscape.
+
+Gear: Cold above 1,500 m even in summer. Thermal layer and spare gloves. Book lodging in advance.`,
+            en: `Fuel: Refuel in Hecho, Roncal, Biescas, Aínsa, and Benasque. Don't count on services in Belagua or high passes.
+
+Restrictions: Belagua and some mountain access roads have seasonal schedules or limitations (confirm before departure).
+
+Pace: Narrow roads with no shoulder — enjoy the lines and landscape.
+
+Gear: Cold above 1,500 m even in summer. Thermal layer and spare gloves. Book lodging in advance.`,
+          },
         },
       ]
     ),
     accommodations: [
       {
-        name: { es: 'Pazo Histórico del Silencio', en: 'Historic Pazo of Silence' },
-        location: { es: 'Valle interior, Galicia interior', en: 'Inland valley, interior Galicia' },
-        type: { es: 'Pazo del s. XVII', en: '17th-century manor' },
-        description: { es: 'Dos noches en manor de piedra con jardines y cocina de autor entre jornadas largas.', en: 'Two nights in a stone manor with gardens and fine dining between long riding days.' },
-        image: 'https://picsum.photos/seed/pazo-silencio/800/500',
+        name: { es: 'Usón Hotel', en: 'Usón Hotel' },
+        location: { es: 'Siresa — Valle de Hecho', en: 'Siresa — Hecho Valley' },
+        type: { es: 'Hotel con encanto · Noche 1', en: 'Charming hotel · Night 1' },
+        description: {
+          es: 'Piedra, madera y entorno de montaña junto al monasterio de Siresa. Ideal para aterrizar el viernes tarde con cena de producto en Hecho.',
+          en: 'Stone, wood, and mountain atmosphere beside Siresa monastery. Ideal for landing on Friday evening with local dining in Hecho.',
+        },
+        image: publicAsset('images/routes/corona/hecho.png'),
+      },
+      {
+        name: { es: 'Casa Gatsazarra', en: 'Casa Gatsazarra' },
+        location: { es: 'Ansó — Valle de Ansó', en: 'Ansó — Ansó Valley' },
+        type: { es: 'Casa rural premium · Noche 2', en: 'Premium country house · Night 2' },
+        description: {
+          es: 'Alojamiento con alma en uno de los valles más espectaculares de Navarra, tras rodar Roncal y Belagua.',
+          en: 'Lodging with soul in one of Navarra\'s most spectacular valleys, after riding Roncal and Belagua.',
+        },
+        image: publicAsset('images/routes/corona/ochagavia.jpg'),
+      },
+      {
+        name: { es: 'Hotel Aínsa', en: 'Hotel Aínsa' },
+        location: { es: 'Aínsa — Plaza Mayor medieval', en: 'Aínsa — medieval main square' },
+        type: { es: 'Boutique histórico · Noche 3', en: 'Historic boutique · Night 3' },
+        description: {
+          es: 'En plena villa medieval, a dos pasos del castillo. La pernoctación perfecta tras Ordesa y la garganta del Ara.',
+          en: 'In the heart of the medieval town, steps from the castle. The perfect overnight after Ordesa and the Ara gorge.',
+        },
+        image: publicAsset('images/routes/corona/ainsa.jpg'),
       },
     ],
   },
-  atlantico: {
+  travesia: {
     routeDetail: stages(
       [
-        { title: { es: 'Día 1 — Cabo occidental', en: 'Day 1 — Western cape' }, distance: '~145 km', content: { es: 'Faro más occidental del continente y primeras curvas al filo del acantilado.', en: 'Mainland\'s westernmost lighthouse and first cliff-edge corners.' } },
-        { title: { es: 'Día 2 — Monte del Trueno', en: 'Day 2 — Monte del Trueno' }, distance: '~150 km', content: { es: 'Subida técnica y tramos expuestos al viento atlántico.', en: 'Technical climb and stretches exposed to Atlantic wind.' } },
-        { title: { es: 'Día 3 — Rías y puertos', en: 'Day 3 — Estuaries and harbors' }, distance: '~140 km', content: { es: 'Carretera costera entre rías y cena de marisco en puerto pesquero.', en: 'Coastal road between estuaries and seafood dinner at a fishing port.' } },
-        { title: { es: 'Día 4 — Cierre épico', en: 'Day 4 — Epic finale' }, distance: '~145 km', content: { es: 'Últimas curvas infinitas sobre acantilados de 300 m de caída.', en: 'Final endless corners above 300 m drop cliffs.' } },
+        {
+          title: { es: 'Día 1 — Atlántico → Roncal y Belagua', en: 'Day 1 — Atlantic → Roncal and Belagua' },
+          distance: '~310 km',
+          content: {
+            es: `Circuito: salida y llegada en Hondarribia. Ida por España (días 1-3), vuelta por Francia (días 4-7).
+
+Ruta: Hondarribia → costa guipuzcoana (GI secundarias) → Baztán → Olite → Estella → Roncal → Belagua → Ochagavía → Biescas.
+
+Paradas: pintxos en Hondarribia, castillo de Olite, circo glaciar de Belagua.
+
+Cena: sidrería o asador en Roncal. Alojamiento: Casa Gatsazarra (Ansó) o Hotel Roncal.`,
+            en: `Loop: start and finish in Hondarribia. Outbound via Spain (days 1–3), return via France (days 4–7).
+
+Route: Hondarribia → Basque coast (secondary GIs) → Baztan → Olite → Estella → Roncal → Belagua → Ochagavía → Biescas.
+
+Stops: pintxos in Hondarribia, Olite castle, Belagua glacial cirque.
+
+Dinner: cider house or grill in Roncal. Lodging: Casa Gatsazarra (Ansó) or Hotel Roncal.`,
+          },
+        },
+        {
+          title: { es: 'Día 2 — Ordesa, Aínsa, Aneto y Valle de Arán', en: 'Day 2 — Ordesa, Aínsa, Aneto and Aran Valley' },
+          distance: '~330 km',
+          content: {
+            es: `Ruta: Biescas → Torla/Ordesa → A-138 → Aínsa → Graus → Benasque → Cerler → Bonaigua → Vielha → Salardú → Arties → Bossòst → Puigcerdà.
+
+Picos míticos: Monte Perdido (vistas), Aneto/Maladeta desde Benasque, Puerto de Bonaigua (1.972 m).
+
+Almuerzo: Aínsa o Benasque. Cena: Eth Pourtau (Arties). Alojamiento: Hotel Villa Paulita (Puigcerdà).`,
+            en: `Route: Biescas → Torla/Ordesa → A-138 → Aínsa → Graus → Benasque → Cerler → Bonaigua → Vielha → Salardú → Arties → Bossòst → Puigcerdà.
+
+Iconic peaks: Monte Perdido (views), Aneto/Maladeta from Benasque, Bonaigua pass (1,972 m).
+
+Lunch: Aínsa or Benasque. Dinner: Eth Pourtau (Arties). Lodging: Hotel Villa Paulita (Puigcerdà).`,
+          },
+        },
+        {
+          title: { es: 'Día 3 — Pallars, Ripollès y cruce a Francia', en: 'Day 3 — Pallars, Ripollès and crossing into France' },
+          distance: '~320 km',
+          content: {
+            es: `Ruta: Puigcerdà → La Pobla de Segur → Sort → Tremp → enlaces por Lleida interior → Ripoll → Camprodon → Molló → Coll de Puymorens → Pas de la Casa → Font-Romeu.
+
+Última gran jornada española con bucle por el Pallars y el Ripollès antes de entrar en la Cerdagne francesa.
+
+Almuerzo: Sort o Tremp. Cena: Auberge du Donezan (Odeillo). Alojamiento: Hôtel le Mas Fleuri (Font-Romeu).`,
+            en: `Route: Puigcerdà → La Pobla de Segur → Sort → Tremp → links through interior Lleida → Ripoll → Camprodon → Molló → Puymorens pass → Pas de la Casa → Font-Romeu.
+
+Last major Spanish day looping through Pallars and Ripollès before entering French Cerdanya.
+
+Lunch: Sort or Tremp. Dinner: Auberge du Donezan (Odeillo). Lodging: Hôtel le Mas Fleuri (Font-Romeu).`,
+          },
+        },
+        {
+          title: { es: 'Día 4 — Cerdagne, Canigó y Conflent', en: 'Day 4 — Cerdanya, Canigó and Conflent' },
+          distance: '~340 km',
+          content: {
+            es: `Ruta: Font-Romeu → Les Angles → Mont-Louis → Formiguères → Prades → Villefranche-de-Conflent (UNESCO) → Vernet-les-Bains → Collioure (toque mediterráneo) → Ax-les-Thermes.
+
+Jornada 100 % francesa: alta montaña, pueblos fortificados y acercamiento al Mediterráneo en Collioure.
+
+Almuerzo: Collioure (pescado). Cena: cocina ariégeoise en Ax. Alojamiento: Hôtel du Lion d'Or (Ax-les-Thermes).`,
+            en: `Route: Font-Romeu → Les Angles → Mont-Louis → Formiguères → Prades → Villefranche-de-Conflent (UNESCO) → Vernet-les-Bains → Collioure (Mediterranean touch) → Ax-les-Thermes.
+
+Full French day: high mountains, fortified villages, and a Mediterranean approach at Collioure.
+
+Lunch: Collioure (seafood). Dinner: Ariège cuisine in Ax. Lodging: Hôtel du Lion d'Or (Ax-les-Thermes).`,
+          },
+        },
+        {
+          title: { es: 'Día 5 — Ariège, Pailhères y Luchon', en: 'Day 5 — Ariège, Pailhères and Luchon' },
+          distance: '~310 km',
+          content: {
+            es: `Ruta: Mérens → Foix → Tarascon-sur-Ariège → Col de Pailhères (2.001 m) → Saint-Girons → Bagnères-de-Luchon.
+
+Pasos salvajes del Ariège y llegada a Luchon, puerta del Pirineo central francés. Desvío opcional por Andorra (Envalira).
+
+Almuerzo: Tarascon-sur-Ariège. Cena: Brasserie du Lyon (Luchon). Alojamiento: Hôtel de France (Luchon).`,
+            en: `Route: Mérens → Foix → Tarascon-sur-Ariège → Col de Pailhères (2,001 m) → Saint-Girons → Bagnères-de-Luchon.
+
+Wild Ariège passes and arrival in Luchon, gateway to the central French Pyrenees. Optional Andorra detour (Envalira).
+
+Lunch: Tarascon-sur-Ariège. Dinner: Brasserie du Lyon (Luchon). Lodging: Hôtel de France (Luchon).`,
+          },
+        },
+        {
+          title: { es: 'Día 6 — Tourmalet, Gavarnie, Aubisque y Ossau', en: 'Day 6 — Tourmalet, Gavarnie, Aubisque and Ossau' },
+          distance: '~350 km',
+          content: {
+            es: `Ruta: Luchon → Col de Peyresourde → Luz-Saint-Sauveur → Gavarnie (circo UNESCO) → Col du Tourmalet (2.115 m) → Barèges → Col d'Aubisque (1.709 m) → Laruns → Valle d'Ossau → Pau.
+
+El día cumbre francés: tres puertos de leyenda del Tour de France y el circo de Gavarnie.
+
+Almuerzo: Luz o Barèges. Cena: Auberge du Lien (Laruns). Alojamiento: Hôtel Mercure Pau / Château de Bétharram.`,
+            en: `Route: Luchon → Col de Peyresourde → Luz-Saint-Sauveur → Gavarnie (UNESCO cirque) → Col du Tourmalet (2,115 m) → Barèges → Col d'Aubisque (1,709 m) → Laruns → Ossau Valley → Pau.
+
+The pinnacle French day: three legendary Tour de France passes and the Gavarnie cirque.
+
+Lunch: Luz or Barèges. Dinner: Auberge du Lien (Laruns). Lodging: Hôtel Mercure Pau / Château de Bétharram.`,
+          },
+        },
+        {
+          title: { es: 'Día 7 — Ossau, Pourtalet, Canfranc y cierre en Hondarribia', en: 'Day 7 — Ossau, Pourtalet, Canfranc and return to Hondarribia' },
+          distance: '~300 km',
+          content: {
+            es: `Ruta: Pau → Valle d'Aspe → Col du Pourtalet (1.794 m) → Canfranc-Estación → Jaca → Valle de Hecho (opcional) → Doneztebe → Hondarribia.
+
+Cierre del circuito: frontera occidental, estación de Canfranc y regreso al Atlántico. Cena de celebración: pintxos en Hondarribia.
+
+Documentación obligatoria en frontera. Repostar en Pau, Jaca y antes del Pourtalet.`,
+            en: `Route: Pau → Aspe Valley → Col du Pourtalet (1,794 m) → Canfranc Station → Jaca → Hecho Valley (optional) → Doneztebe → Hondarribia.
+
+Loop finale: western border, Canfranc station, and return to the Atlantic. Celebration dinner: pintxos in Hondarribia.
+
+ID/passport required at the border. Refuel in Pau, Jaca, and before Pourtalet.`,
+          },
+        },
+        {
+          title: { es: 'Consejos para la ruta', en: 'Route tips' },
+          content: {
+            es: `Ritmo: salidas a las 8:00–8:30. Jornadas de 300+ km con paradas cortas (20–40 min).
+
+Gasolina: nunca por debajo de 1/3 de depósito en zona de montaña. Repostar en Roncal, Aínsa, Vielha, Puigcerdà, Pau y Jaca.
+
+Frontera: DNI o pasaporte. Puymorens, Pourtalet y opcional Andorra (día 5).
+
+Temporada: junio–septiembre para Tourmalet, Pailhères y Bonaigua sin nieve.
+
+Equipación: capas térmicas obligatorias (0–2.100 m). Reservar alojamientos con 4–6 semanas de antelación.`,
+            en: `Pace: departures at 8:00–8:30. 300+ km days with short stops (20–40 min).
+
+Fuel: never below 1/3 tank in the mountains. Refuel in Roncal, Aínsa, Vielha, Puigcerdà, Pau, and Jaca.
+
+Border: ID or passport. Puymorens, Pourtalet, and optional Andorra (day 5).
+
+Season: June–September for Tourmalet, Pailhères, and Bonaigua without snow.
+
+Gear: thermal layers essential (0–2,100 m). Book lodging 4–6 weeks ahead.`,
+          },
+        },
       ],
       [
-        { title: { es: 'Day 1 — Western cape', en: 'Day 1 — Western cape' }, distance: '~145 km', content: { es: 'Faro más occidental del continente y primeras curvas al filo del acantilado.', en: 'Mainland\'s westernmost lighthouse and first cliff-edge corners.' } },
-        { title: { es: 'Day 2 — Monte del Trueno', en: 'Day 2 — Monte del Trueno' }, distance: '~150 km', content: { es: 'Subida técnica y tramos expuestos al viento atlántico.', en: 'Technical climb and stretches exposed to Atlantic wind.' } },
-        { title: { es: 'Day 3 — Estuaries and harbors', en: 'Day 3 — Estuaries and harbors' }, distance: '~140 km', content: { es: 'Carretera costera entre rías y cena de marisco en puerto pesquero.', en: 'Coastal road between estuaries and seafood dinner at a fishing port.' } },
-        { title: { es: 'Day 4 — Epic finale', en: 'Day 4 — Epic finale' }, distance: '~145 km', content: { es: 'Últimas curvas infinitas sobre acantilados de 300 m de caída.', en: 'Final endless corners above 300 m drop cliffs.' } },
+        {
+          title: { es: 'Day 1 — Atlantic → Roncal and Belagua', en: 'Day 1 — Atlantic → Roncal and Belagua' },
+          distance: '~310 km',
+          content: {
+            es: `Loop: start and finish in Hondarribia. Outbound via Spain (days 1–3), return via France (days 4–7).
+
+Route: Hondarribia → Basque coast → Baztan → Olite → Estella → Roncal → Belagua → Ochagavía → Biescas.
+
+Stops: pintxos in Hondarribia, Olite castle, Belagua glacial cirque.
+
+Dinner: cider house or grill in Roncal. Lodging: Casa Gatsazarra (Ansó) or Hotel Roncal.`,
+            en: `Loop: start and finish in Hondarribia. Outbound via Spain (days 1–3), return via France (days 4–7).
+
+Route: Hondarribia → Basque coast → Baztan → Olite → Estella → Roncal → Belagua → Ochagavía → Biescas.
+
+Stops: pintxos in Hondarribia, Olite castle, Belagua glacial cirque.
+
+Dinner: cider house or grill in Roncal. Lodging: Casa Gatsazarra (Ansó) or Hotel Roncal.`,
+          },
+        },
+        {
+          title: { es: 'Day 2 — Ordesa, Aínsa, Aneto and Aran Valley', en: 'Day 2 — Ordesa, Aínsa, Aneto and Aran Valley' },
+          distance: '~330 km',
+          content: {
+            es: `Route: Biescas → Torla/Ordesa → Aínsa → Benasque → Bonaigua → Aran Valley → Puigcerdà.
+
+Iconic peaks: Monte Perdido, Aneto views, Bonaigua pass (1,972 m).
+
+Lunch: Aínsa or Benasque. Dinner: Eth Pourtau (Arties). Lodging: Hotel Villa Paulita (Puigcerdà).`,
+            en: `Route: Biescas → Torla/Ordesa → Aínsa → Benasque → Bonaigua → Aran Valley → Puigcerdà.
+
+Iconic peaks: Monte Perdido, Aneto views, Bonaigua pass (1,972 m).
+
+Lunch: Aínsa or Benasque. Dinner: Eth Pourtau (Arties). Lodging: Hotel Villa Paulita (Puigcerdà).`,
+          },
+        },
+        {
+          title: { es: 'Day 3 — Pallars, Ripollès and crossing into France', en: 'Day 3 — Pallars, Ripollès and crossing into France' },
+          distance: '~320 km',
+          content: {
+            es: `Route: Puigcerdà → Sort → Tremp → Ripoll → Camprodon → Puymorens → Font-Romeu.
+
+Last major Spanish day before French Cerdanya.
+
+Lunch: Sort or Tremp. Dinner: Auberge du Donezan. Lodging: Hôtel le Mas Fleuri (Font-Romeu).`,
+            en: `Route: Puigcerdà → Sort → Tremp → Ripoll → Camprodon → Puymorens → Font-Romeu.
+
+Last major Spanish day before French Cerdanya.
+
+Lunch: Sort or Tremp. Dinner: Auberge du Donezan. Lodging: Hôtel le Mas Fleuri (Font-Romeu).`,
+          },
+        },
+        {
+          title: { es: 'Day 4 — Cerdanya, Canigó and Conflent', en: 'Day 4 — Cerdanya, Canigó and Conflent' },
+          distance: '~340 km',
+          content: {
+            es: `Route: Font-Romeu → Mont-Louis → Prades → Villefranche-de-Conflent → Collioure → Ax-les-Thermes.
+
+Full French day with Mediterranean touch at Collioure.
+
+Lunch: Collioure. Dinner: Ax-les-Thermes. Lodging: Hôtel du Lion d'Or.`,
+            en: `Route: Font-Romeu → Mont-Louis → Prades → Villefranche-de-Conflent → Collioure → Ax-les-Thermes.
+
+Full French day with Mediterranean touch at Collioure.
+
+Lunch: Collioure. Dinner: Ax-les-Thermes. Lodging: Hôtel du Lion d'Or.`,
+          },
+        },
+        {
+          title: { es: 'Day 5 — Ariège, Pailhères and Luchon', en: 'Day 5 — Ariège, Pailhères and Luchon' },
+          distance: '~310 km',
+          content: {
+            es: `Route: Foix → Tarascon → Col de Pailhères (2,001 m) → Bagnères-de-Luchon.
+
+Wild Ariège passes. Optional Andorra detour.
+
+Lunch: Tarascon. Dinner: Brasserie du Lyon (Luchon). Lodging: Hôtel de France (Luchon).`,
+            en: `Route: Foix → Tarascon → Col de Pailhères (2,001 m) → Bagnères-de-Luchon.
+
+Wild Ariège passes. Optional Andorra detour.
+
+Lunch: Tarascon. Dinner: Brasserie du Lyon (Luchon). Lodging: Hôtel de France (Luchon).`,
+          },
+        },
+        {
+          title: { es: 'Day 6 — Tourmalet, Gavarnie, Aubisque and Ossau', en: 'Day 6 — Tourmalet, Gavarnie, Aubisque and Ossau' },
+          distance: '~350 km',
+          content: {
+            es: `Route: Luchon → Gavarnie → Col du Tourmalet → Col d'Aubisque → Laruns → Pau.
+
+Three legendary Tour de France passes and the Gavarnie cirque.
+
+Lunch: Luz or Barèges. Dinner: Auberge du Lien (Laruns). Lodging: Château de Bétharram / Pau.`,
+            en: `Route: Luchon → Gavarnie → Col du Tourmalet → Col d'Aubisque → Laruns → Pau.
+
+Three legendary Tour de France passes and the Gavarnie cirque.
+
+Lunch: Luz or Barèges. Dinner: Auberge du Lien (Laruns). Lodging: Château de Bétharram / Pau.`,
+          },
+        },
+        {
+          title: { es: 'Day 7 — Pourtalet, Canfranc and Hondarribia', en: 'Day 7 — Pourtalet, Canfranc and Hondarribia' },
+          distance: '~300 km',
+          content: {
+            es: `Route: Pau → Col du Pourtalet → Canfranc → Jaca → Hondarribia.
+
+Loop complete. Celebration pintxos in Hondarribia.`,
+            en: `Route: Pau → Col du Pourtalet → Canfranc → Jaca → Hondarribia.
+
+Loop complete. Celebration pintxos in Hondarribia.`,
+          },
+        },
+        {
+          title: { es: 'Route tips', en: 'Route tips' },
+          content: {
+            es: `300+ km daily pace. Fuel, passport, June–September season, thermal layers, book lodging ahead.`,
+            en: `300+ km daily pace. Fuel, passport, June–September season, thermal layers, book lodging ahead.`,
+          },
+        },
       ]
     ),
     accommodations: [
       {
-        name: { es: 'Casa Marítima Costa Salvaje', en: 'Wild Coast Seaside House' },
-        location: { es: 'Litoral atlántico', en: 'Atlantic coastline' },
-        type: { es: 'Boutique costero', en: 'Coastal boutique' },
-        description: { es: 'Alojamientos rotativos junto al mar con vistas al océano cada noche del Trail.', en: 'Rotating seaside lodgings with ocean views each night of the Trail.' },
-        image: 'https://picsum.photos/seed/casa-maritima/800/500',
+        name: { es: 'Casa Gatsazarra', en: 'Casa Gatsazarra' },
+        location: { es: 'Ansó — Valle de Ansó', en: 'Ansó — Ansó Valley' },
+        type: { es: 'Casa rural premium · Noche 1', en: 'Premium country house · Night 1' },
+        description: {
+          es: 'Primera pernoctación tras Roncal y Belagua. Encanto rural en uno de los valles más espectaculares de Navarra.',
+          en: 'First night after Roncal and Belagua. Rural charm in one of Navarra\'s finest valleys.',
+        },
+        image: publicAsset('images/routes/travesia/ochagavia.jpg'),
+      },
+      {
+        name: { es: 'Hotel Villa Paulita', en: 'Hotel Villa Paulita' },
+        location: { es: 'Puigcerdà — Cerdanya', en: 'Puigcerdà — Cerdanya' },
+        type: { es: 'Hotel histórico · Noche 2', en: 'Historic hotel · Night 2' },
+        description: {
+          es: 'Tras Ordesa, Benasque, Bonaigua y el Arán completo. Elegancia ceretana tras una jornada de 330 km.',
+          en: 'After Ordesa, Benasque, Bonaigua, and the full Aran Valley. Cerdanya elegance after a 330 km day.',
+        },
+        image: publicAsset('images/routes/travesia/ordesa.jpg'),
+      },
+      {
+        name: { es: 'Hôtel le Mas Fleuri', en: 'Hôtel le Mas Fleuri' },
+        location: { es: 'Font-Romeu — Cerdagne francesa', en: 'Font-Romeu — French Cerdanya' },
+        type: { es: 'Hotel con encanto · Noche 3', en: 'Charming hotel · Night 3' },
+        description: {
+          es: 'Primera noche en Francia tras cruzar el Puymorens. Base perfecta en la alta Cerdagne.',
+          en: 'First night in France after crossing Puymorens. Perfect base in high Cerdanya.',
+        },
+        image: publicAsset('images/routes/travesia/collioure.jpg'),
+      },
+      {
+        name: { es: "Hôtel du Lion d'Or", en: "Hôtel du Lion d'Or" },
+        location: { es: 'Ax-les-Thermes — Ariège', en: 'Ax-les-Thermes — Ariège' },
+        type: { es: 'Hotel termal · Noche 4', en: 'Spa hotel · Night 4' },
+        description: {
+          es: 'Tras Collioure, Conflent y el Canigó. Aguas termales y cocina ariégeoise para recuperar.',
+          en: 'After Collioure, Conflent, and Canigó. Thermal waters and Ariège cuisine to recover.',
+        },
+        image: publicAsset('images/routes/travesia/aubisque.jpg'),
+      },
+      {
+        name: { es: 'Hôtel de France', en: 'Hôtel de France' },
+        location: { es: 'Bagnères-de-Luchon — Hautes-Pyrénées', en: 'Bagnères-de-Luchon — Hautes-Pyrénées' },
+        type: { es: 'Palacio del s. XIX · Noche 5', en: '19th-c. palace · Night 5' },
+        description: {
+          es: 'Tras el Col de Pailhères. Luchon es la puerta histórica del Pirineo central francés.',
+          en: 'After Col de Pailhères. Luchon is the historic gateway to the central French Pyrenees.',
+        },
+        image: publicAsset('images/routes/travesia/tourmalet.jpg'),
+      },
+      {
+        name: { es: 'Château de Bétharram', en: 'Château de Bétharram' },
+        location: { es: 'Pau — Valle de Ossau', en: 'Pau — Ossau Valley' },
+        type: { es: 'Château boutique · Noche 6', en: 'Boutique château · Night 6' },
+        description: {
+          es: 'Tras Tourmalet, Gavarnie y Aubisque. Noche de rey antes del Pourtalet y el regreso al Atlántico.',
+          en: 'After Tourmalet, Gavarnie, and Aubisque. A regal night before Pourtalet and the return to the Atlantic.',
+        },
+        image: publicAsset('images/routes/travesia/canfranc.jpg'),
       },
     ],
   },
